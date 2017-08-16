@@ -6,15 +6,15 @@
 
 
 
-function multiplosOf3and5(number){
-    var list = []
-    for(var cada_numero = 0; cada_numero <= 10; cada_numero++){
-        if(number % cada_numero == 0){
-          list.push(cada_numero)
-        }
-    }
-    return list
-}
+function multiplosOf3and5(number1, number2){
+    var resultado = 0
+    for(var cada_numero = 0; cada_numero < 1000; cada_numero++){
+      if(cada_numero % number1 == 0 | cada_numero % number2 == 0) {
+        resultado += cada_numero
+      };
+    };
+    return resultado
+};
 
-
-console.log(multiplosOf3and5(3));
+console.log('Chamada com o numero 3 e 5 ')
+console.log(multiplosOf3and5(3, 5));
