@@ -17,22 +17,30 @@ function fibonacci() {
   var resultado_final = 0;
 
   for(var cont = 0; cont <= 100; cont++) {
-    var resultado = numero1 + numero2
 
-    if(resultado % 2 === 0) {
-      console.log('resultado primeira impressão 1', resultado_final)
-      resultado_final = resultado
+
+    console.log('>>>>>>>>>>>>>>>>>> numero1', numero1);
+    console.log('>>>>>>>>>>>>>>>>>> numero2', numero2);
+
+    var resultado = numero1 + numero2
+    console.log('resultadooooooooooooooooooooooooooooooooooo', resultado)
+    console.log((resultado % 2 === 0 || resultado % 2 === 2));
+
+    if(resultado % 2 === 0 || resultado % 2 === 2) {
+      console.log('resultado primeira impressão ', resultado)
+      console.log('resultado ....<<>>', resultado)
+      resultado_final += resultado
     }
 
     if(4000000 < resultado_final) {
-      console.log('resultado segunda impressão 2', resultado_final)
+      console.log('resultado segunda impressão ', resultado)
       return resultado_final
 
     }
 
     numero1 = numero2
     numero2 = resultado
-
+    console.log("######################### uma volta ##########################")
   }
   return resultado_final
 }
