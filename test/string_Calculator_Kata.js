@@ -16,10 +16,11 @@ describe.only('Calculadora Kata', () => {
   });
 
   it('Quando enviado mais de dois numeros', () => {
-    expect(calculadoraKata('1,2,3')).to.equal('invalido')
+    expect(calculadoraKata('1,2,3')).to.equal(6)
   });
 
-  it.skip('Quando enviado letras deve informar entrada invalida', () => {
-    expect(calculadoraKata('a')).to.equal('invalido')
+  it('Pode ter outras entradas diferentes de , ', () => {
+    expect(calculadoraKata('1/n2,3')).to.equal(6)
   });
+
 });

@@ -3,26 +3,16 @@
 
 
 function calculadoraKata(string) {
-
+  var numero = 0
   if(string == '' || string == ' ') {
     return 0
   }
-  if(string) {
-
-    if(string.length == 1) {
-      var number1 = parseInt(string);
-      return number1
-    } else if(string.length == 3) {
-        var list_de_number = string.split(",");
-        var number1 = parseInt(list_de_number[0]);
-        var number2 = parseInt(list_de_number[1]);
-        return number1 + number2
-    }
-    // neste ponto EU gostaria de previnir o cdg de entrada de letras isNaN(string)
-    if(string.length >= 4 || isNaN(string)){
-      return 'invalido'
+  for(var cada_letra = 0; cada_letra <= string.length; cada_letra++) {
+    if(!isNaN(string[cada_letra])){
+      numero = numero + parseInt(string[cada_letra]);
     }
   }
+  return numero
 }
 
 
