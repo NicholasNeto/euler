@@ -1,6 +1,10 @@
 
 //var string = 'a'
 
+function findDelimitador(string){
+  if(indexOf(';') == -1 ){retun}
+}
+
 
 function calculadoraKata(string) {
   var numero = 0
