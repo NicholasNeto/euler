@@ -19,12 +19,11 @@ describe.only('Calculadora Kata', () => {
     expect(calculadoraKata('1,2,3')).to.equal(6)
   });
 
-  it('Pode ter outras entradas diferentes de , ', () => {
-    expect(calculadoraKata('1/n2,3')).to.equal(6)
+  it('Pode ter outras entradas diferentes 1  2, 3', () => {
+    expect(calculadoraKata("1\n2,3")).to.equal(6)
   });
 
   it('suporte a diferentes delimitadores', () => {
     expect(calculadoraKata("//;\n1;2")).to.equal(3)
   });
-
 });
