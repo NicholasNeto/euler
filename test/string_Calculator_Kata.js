@@ -2,7 +2,7 @@ var calculadoraKata = require('../string_Calculator_Kata.js');
 var expect = require('chai').expect;
 
 
-describe.only('Calculadora Kata', () => {
+describe('Calculadora Kata', () => {
   it('When empty string return 0 ', () => {
     expect(calculadoraKata(' ')).to.equal(0)
   });
@@ -19,11 +19,19 @@ describe.only('Calculadora Kata', () => {
     expect(calculadoraKata('1,2,3')).to.equal(6)
   });
 
-  it('Pode ter outras entradas diferentes 1  2, 3', () => {
+  it('Tipos diferente de entrada de dados \n', () => {
     expect(calculadoraKata("1\n2,3")).to.equal(6)
   });
 
   it('suporte a diferentes delimitadores', () => {
     expect(calculadoraKata("//;\n1;2")).to.equal(3)
+  });
+
+  it('"negativos não permitidos"', () => {
+    expect(calculadoraKata("1,4,-1")).to.equal('negatives not allowed:-1')
+  });
+
+  it('Os números maiores do que 1000 devem ser ignorados', () => {
+    expect(calculadoraKata("2,1001")).to.equal(2)
   });
 });
