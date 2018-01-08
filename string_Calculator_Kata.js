@@ -1,68 +1,67 @@
 
-function encontraDelimitador(dados) {
-    var lista = dados.split('//');
+var findDelimiter = function (sIpuntDados) {
+    var lista = sIpuntDados.split('//');
     return lista [1][0];
   }
 
-function quebraDeLinha(dados){
-    var numerosSemQuebraDeLinha = dados.split('\n');
-    return numerosSemQuebraDeLinha
+var lineBrea = function(sIpuntDados){
+    var inumbersSemQuebraDeLinha = sIpuntDados.split('\n');
+    return inumbersSemQuebraDeLinha
   }
 
-function criaListaParaSoma(list, listTemp2){
-  for(var cadaNumero = 0; cadaNumero <= listTemp2.length -1; cadaNumero++){
-    list.push(listTemp2[cadaNumero]);
+var preListForSum = function(list, ltemporaryList){
+  for(var eachValue = 0; eachValue <= ltemporaryList.length -1; eachValue++){
+    list.push(ltemporaryList[eachValue]);
   }
   return list
 }
 
 
-function calculadoraKata(dados) {
-  var numero = 0;
+var calculadoraKata = function(sIpuntDados) {
+  var inumber = 0;
   var list = [];
 
-  if(dados == '' || dados == ' ') {
+  if(sIpuntDados == '' || sIpuntDados == ' ') {
     return 0;
   }
 
-  if(dados.length == 1){
-    return parseInt(dados);
+  if(sIpuntDados.length == 1){
+    return parseInt(sIpuntDados);
   }
 
-  if(dados.indexOf('//') != -1) {
-     var delimitador = encontraDelimitador(dados);
-     var preList = quebraDeLinha(dados);
-     var listTemp2 = preList[1].split(delimitador);
-     criaListaParaSoma(list, listTemp2);
+  if(sIpuntDados.indexOf('//') != -1) {
+     var sdelimiter = findDelimiter(sIpuntDados);
+     var preList = lineBrea(sIpuntDados);
+     var ltemporaryList = preList[1].split(sdelimiter);
+     preListForSum(list, ltemporaryList);
 
-  } else if(dados.indexOf('\n') != -1) {
-    var preList = quebraDeLinha(dados)
+  } else if(sIpuntDados.indexOf('\n') != -1) {
+    var preList = lineBrea(sIpuntDados)
     list.push(preList[0])
-    var listTemp2 = preList[1].split(',')
+    var ltemporaryList = preList[1].split(',')
 
-    criaListaParaSoma(list ,listTemp2)
+   preListForSum(list ,ltemporaryList)
 
   } else {
-    var list = dados.split(',')
+    var list = sIpuntDados.split(',')
   }
 
   var isNegative = Math.min.apply(Math, list);
   var isMax1000 = Math.max.apply(Math, list);
 
   if(isNegative < 0 ) {
-    var texto = 'negatives not allowed:' + isNegative;
-    return texto
+    return 'negatives not allowed:' + isNegative;
   } else if(isMax1000 > 1000) {
 
       var index = isMax1000.toString();
       var string = list.indexOf(index);
-      var listaErrada  = list.splice(string);
+      list.splice(string);
   }
 
-  for(var cadaLetra = 0; cadaLetra <= list.length -1; cadaLetra++) {
-    numero = numero + parseInt(list[cadaLetra])
+  for(var eachValue = 0; eachValue <= list.length -1; eachValue++) {
+    inumber = inumber + parseInt(list[eachValue])
   }
-  return numero;
+  return inumber;
 }
 
 module.exports = calculadoraKata
