@@ -10,7 +10,7 @@ var lineBrea = function(sIpuntDados){
   }
 
 var preListForSum = function(list, ltemporaryList){
-  for(var eachValue = 0; eachValue <= ltemporaryList.length -1; eachValue++){
+  for(var eachValue = 0; eachValue < ltemporaryList.length; eachValue++){
     list.push(ltemporaryList[eachValue]);
   }
   return list
